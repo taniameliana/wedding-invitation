@@ -149,21 +149,9 @@
   </footer>
 
   <script>
-    const music = document.getElementById("music");
-    const musicButton =
-      document.getElementById("musicButton");
-
-    async function toggleMusic() {
-      if (music.paused) {
-        try {
-          await music.play();
-          musicButton.textContent = "❚❚ Jeda Musik";
-        } catch (error) {
-          alert("Musik tidak dapat diputar. Periksa file musik.");
-        }
-      } else {
-        music.pause();
-        musicButton.textContent = "▶ Putar Musik";
+    <audio id="music" autoplay loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
       }
     }
   </script>

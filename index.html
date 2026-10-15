@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Undangan Pernikahan</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f7f4ed;
+      color: #465344;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 55px 22px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #e8eadf;
+    }
+
+    h1 {
+      font-size: clamp(38px, 9vw, 62px);
+      font-weight: normal;
+      margin: 12px 0;
+    }
+
+    h2 { font-weight: normal; }
+
+    img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    button, .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 5px;
+      padding: 12px 22px;
+      background: #596c55;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+      margin: 6px;
+    }
+
+    .details {
+      background: #eeece3;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    footer {
+      padding: 35px 15px;
+      background: #e8eadf;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <p>THE WEDDING OF</p>
+    <h1>Nama & Nama</h1>
+
+    <img src="foto-prewedding.jpg"
+         alt="Foto prewedding pasangan">
+
+    <p>Dengan penuh sukacita, kami mengundang
+       Anda untuk merayakan hari istimewa kami.</p>
+
+    <p>12 Desember 2027</p>
+
+    <button onclick="document.getElementById('acara')
+      .scrollIntoView({behavior:'smooth'})">
+      Buka Undangan
+    </button>
+
+    <button id="musicButton" onclick="toggleMusic()">
+      ▶ Putar Musik
+    </button>
+
+    <audio id="music" loop>
+      <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+  </section>
+
+  <section>
+    <h2>Mempelai</h2>
+    <p>
+      Nama Mempelai Wanita<br>
+      Putri dari Bapak ... dan Ibu ...
+    </p>
+
+    <p style="font-size:26px">&</p>
+
+    <p>
+      Nama Mempelai Pria<br>
+      Putra dari Bapak ... dan Ibu ...
+    </p>
+  </section>
+
+  <section id="acara">
+    <h2>Detail Acara</h2>
+
+    <div class="details">
+      <h3>Upacara Pernikahan</h3>
+      <p>12 Desember 2027 · 10.00 WITA</p>
+      <p>Nama Tempat, Alamat Lengkap</p>
+
+      <a class="button"
+         href="MASUKKAN_LINK_GOOGLE_MAPS"
+         target="_blank" rel="noopener">
+        Buka Google Maps
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Konfirmasi Kehadiran</h2>
+    <p>Kehadiran dan doa restu Anda sangat berarti.</p>
+
+    <a class="button"
+       href="MASUKKAN_LINK_GOOGLE_FORMS"
+       target="_blank" rel="noopener">
+      Konfirmasi RSVP
+    </a>
+  </section>
+
+  <footer>
+    Terima kasih atas doa dan restu Anda.
+  </footer>
+
+  <script>
+    const music = document.getElementById("music");
+    const musicButton =
+      document.getElementById("musicButton");
+
+    async function toggleMusic() {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicButton.textContent = "❚❚ Jeda Musik";
+        } catch (error) {
+          alert("Musik tidak dapat diputar. Periksa file musik.");
+        }
+      } else {
+        music.pause();
+        musicButton.textContent = "▶ Putar Musik";
+      }
+    }
+  </script>
+
+</body>
+</html>
